@@ -7,6 +7,7 @@ def main():
 
         if resp == 1:
             print('Adicionar receita')
+            ID = input('')
         elif resp == 2:
             print('Adicionar despesa')
         elif resp == 3: 
