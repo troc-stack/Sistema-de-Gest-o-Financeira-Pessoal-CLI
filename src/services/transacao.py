@@ -11,7 +11,11 @@ class Transacoes:
 
     def salvar_arquivo(self):
         nova_transacao = {
-            { 'id': self.__Id, 'tipo': self.__Tipo, 'valor': self.__valor, 'categoria' : self.__categoria, 'data': self.__data}
+             'id': self.__Id, 
+             'tipo': self.__Tipo,
+             'valor': self.__valor, 
+             'categoria' : self.__categoria, 
+             'data': self.__data
             }
 
         try:
