@@ -1,5 +1,6 @@
 from ui import terminal
 from services import transacao
+from services import GerenciadorTransacoes
 
 def main():
 
@@ -29,7 +30,11 @@ def main():
             dd.salvar_arquivo 
 
         elif resp == 3: 
-            print('Listar transações')
+            gg = GerenciadorTransacoes.Gerenciador
+            gg.listar
+
+
+
         elif resp == 4:
             print('Editar transação')
         elif resp == 5: 
