@@ -7,20 +7,26 @@ def main():
         resp = terminal.menu()
 
         if resp == 1:
-            print('Adicionar receita')
+            print('Adicionar Receita')
+
             Id = input('digite o id da receita')
             valor = int(input('Digite o valor: R$ '))
             categoria = input('digite a categoria da receita: ')
             data = input('digite a data: ')
-            transacao.receita(Id, valor, categoria, data)
+
+            rr = transacao.Transacoes(Id, 'Receita', valor, categoria, data)
+            rr.salvar_arquivo
 
         elif resp == 2:
-            print('Adicionar receita')
+            print('Adicionar Despesa')
+
             Id = input('digite o id da receita')
             valor = int(input('Digite o valor: R$ '))
             categoria = input('digite a categoria da receita: ')
             data = input('digite a data: ')
-            transacao.receita(Id, 'receita', valor, categoria, data)
+            
+            dd = transacao.receita(Id, 'Despesa', valor, categoria, data)
+            dd.salvar_arquivo 
 
         elif resp == 3: 
             print('Listar transações')
