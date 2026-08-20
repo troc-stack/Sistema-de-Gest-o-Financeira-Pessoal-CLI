@@ -27,8 +27,24 @@ class Gerenciador:
                 f"| Data: {elemento['data']}")
             print('--' * 30)
 
-    def editar(self):
+    def editar(self, id):
         pass
 
     def excluir(self):
         pass
+
+    def buscar(self, id):
+        for elemento in self.__dados['transaçõs']:
+            if elemento['id'] == id: 
+                print('--' * 30)
+                print(f"| ID: {elemento['id']} "
+                    f"| Tipo: {elemento['tipo']} "
+                    f"| Valor: R$ {elemento['valor']:.2f} "
+                    f"| Categoria: {elemento['categoria']} "
+                    f"| Data: {elemento['data']}")
+                print('--' * 30)
+                break
+
+            print('transação não encontrada!!!')
+
+            
