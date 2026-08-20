@@ -1,4 +1,5 @@
 from ui import terminal
+from services import transacao
 
 def main():
 
@@ -7,9 +8,20 @@ def main():
 
         if resp == 1:
             print('Adicionar receita')
-            ID = input('')
+            Id = input('digite o id da receita')
+            valor = int(input('Digite o valor: R$ '))
+            categoria = input('digite a categoria da receita: ')
+            data = input('digite a data: ')
+            transacao.receita(Id, valor, categoria, data)
+
         elif resp == 2:
-            print('Adicionar despesa')
+            print('Adicionar receita')
+            Id = input('digite o id da receita')
+            valor = int(input('Digite o valor: R$ '))
+            categoria = input('digite a categoria da receita: ')
+            data = input('digite a data: ')
+            transacao.receita(Id, 'receita', valor, categoria, data)
+
         elif resp == 3: 
             print('Listar transações')
         elif resp == 4:
