@@ -11,4 +11,7 @@ class Transacoes:
 
     def salvar_arquivo():
         try: 
-            
+            with open("transacoes.json", "r", encoding="utf-8") as arquivo: 
+                dados = json.load(arquivo)
+        except FileNotFoundError:
+            print('arquivo não encontrado!')
