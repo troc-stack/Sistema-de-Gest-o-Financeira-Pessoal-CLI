@@ -5,13 +5,19 @@ class Gerenciador:
     def __init__(self):
         try:
             with open("transacoes.json", "r", encoding="utf-8") as arquivo:
-                dados = json.load(arquivo)
+                self.__dados = json.load(arquivo)
         except (FileNotFoundError, json.JSONDecodeError):
-            return 'Não há dados registrados'    
-        else: 
-            self.__dados = dados
+            self.__dados = {"transações": []}
+
+    def salvar_arquivo(self):
+        with open('transacoes.json', 'w', encoding='utf-8') as a:
+            json.dump(self.__dados, a, ensure_ascii=False, indent=4)
 
     def listar(self):
+        if not self.__dados["transações"]:
+            print("Não há transações registradas.")
+            return
+
         n = 0 
 
         print("--- LISTA DE TRANSAÇÕES ---")
@@ -27,11 +33,46 @@ class Gerenciador:
                 f"| Data: {elemento['data']}")
             print('--' * 30)
 
-    def editar(self, id):
-        pass
+    def editar(self, id, chave, novo_valor):
+        for elemento in self.__dados['transações']:
+            if elemento['id'] == id:
+                
+                if chave in elemento:
 
-    def excluir(self):
-        pass
+                    if chave == 'valor':
+                        novo_valor = float(novo_valor)
+
+                    elemento[chave] = novo_valor
+                    self.salvar_arquivo()
+                    
+                    print(f"Campo '{chave}' atualizado com sucesso para: {novo_valor}")
+                    return
+                else:
+                    print(f"Erro: A chave '{chave}' não existe na transação.")
+                    return
+
+        print("Transação não encontrada!")
+
+    def excluir(self,id):
+
+        novos_dados = {"transações": []}
+
+        for elemento in self.__dados['transaçõs']:
+            if elemento['id'] == id:
+                pass 
+            else: 
+                novos_dados['transações'].append(elemento)
+
+        false = False
+        for elemento in self.__dados['transaçõs']:
+            if elemento['id'] == id:
+                false = True    
+
+        if false is False: 
+            print('id não encontrado')
+
+        self.__dados = novos_dados
+        self.salvar_arquivo
 
     def buscar(self, id):
         for elemento in self.__dados['transaçõs']:
@@ -43,8 +84,7 @@ class Gerenciador:
                     f"| Categoria: {elemento['categoria']} "
                     f"| Data: {elemento['data']}")
                 print('--' * 30)
-                break
-
-            print('transação não encontrada!!!')
+                return
+        print('transação não encontrada!!!')
 
             
