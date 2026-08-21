@@ -38,10 +38,8 @@ def main():
             gg.listar
 
             id = input('informe o ID da trnasação que deseja editar')
-            gg.buscar 
-            
-
-
+            gg.buscar(id)
+            gg.editar(id) 
 
         elif resp == 5: 
             print('Excluir transação')
