@@ -7,7 +7,7 @@ def main():
     while True:
         resp = terminal.menu()
 
-        if resp == 1:
+        if resp == 1: #Adicionar receita
             print('Adicionar Receita')
 
             Id = input('digite o id da receita')
@@ -18,7 +18,7 @@ def main():
             rr = transacao.Transacoes(Id, 'Receita', valor, categoria, data)
             rr.salvar_arquivo
 
-        elif resp == 2:
+        elif resp == 2: #Adicionar despesa
             print('Adicionar Despesa')
 
             Id = input('digite o id da receita')
@@ -29,11 +29,11 @@ def main():
             dd = transacao.receita(Id, 'Despesa', valor, categoria, data)
             dd.salvar_arquivo 
 
-        elif resp == 3: 
+        elif resp == 3: #Listar transações
             gg = GerenciadorTransacoes.Gerenciador
             gg.listar
 
-        elif resp == 4:
+        elif resp == 4: #Editar transação
             gg = GerenciadorTransacoes.Gerenciador
             gg.listar
 
@@ -41,20 +41,22 @@ def main():
             gg.buscar(id)
             gg.editar(id) 
 
-        elif resp == 5: 
+        elif resp == 5: #Excluir transação
             print('Excluir transação')
 
-        elif resp == 6: 
+        elif resp == 6: #Buscar transação
             print('Buscar transação')
             gg = GerenciadorTransacoes.Gerenciador
 
             id = input('informe o ID da trnasação que deseja editar')
             gg.buscar
 
-        elif resp == 7:
+        elif resp == 7: #Relatório financeiro
             print('Relatório financeiro')
-        elif resp == 8: 
+
+        elif resp == 8: #Exportar dados
             print('Exportar dados')
+            
         elif resp == 9:
             break
 
