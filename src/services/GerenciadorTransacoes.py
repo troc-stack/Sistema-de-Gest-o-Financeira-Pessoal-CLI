@@ -34,6 +34,7 @@ class Gerenciador:
             print('--' * 30)
 
     def editar(self, id, chave, novo_valor):
+
         for elemento in self.__dados['transações']:
             if elemento['id'] == id:
                 
@@ -75,7 +76,7 @@ class Gerenciador:
         self.salvar_arquivo
 
     def buscar(self, id):
-        for elemento in self.__dados['transaçõs']:
+        for elemento in self.__dados['transações']:
             if elemento['id'] == id: 
                 print('--' * 30)
                 print(f"| ID: {elemento['id']} "
@@ -86,5 +87,3 @@ class Gerenciador:
                 print('--' * 30)
                 return
         print('transação não encontrada!!!')
-
-            
