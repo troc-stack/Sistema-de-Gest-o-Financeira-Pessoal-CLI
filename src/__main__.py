@@ -26,7 +26,7 @@ def main():
             categoria = input('digite a categoria da receita: ')
             data = input('digite a data: ')
             
-            rr = transacao.Transacoes(Id, 'Receita', valor, categoria, data)
+            rr = transacao.Transacoes(Id, 'Despesa', valor, categoria, data)
             rr.salvar_arquivo()
 
         elif resp == 3: #Listar transações
@@ -73,7 +73,7 @@ def main():
 
                 elif resp == 3: 
                     chave = 'valor'
-                    novo = int(input('Digite o novo valor: '))
+                    novo = float(input('Digite o novo valor: '))
                     break 
 
                 elif resp == 4:
