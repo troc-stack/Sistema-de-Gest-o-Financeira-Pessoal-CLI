@@ -1,0 +1,25 @@
+{
+    "transações": [
+        {
+            "id": 1,
+            "tipo": "Receita",
+            "valor": 2,
+            "categoria": "casa",
+            "data": "21/02/2000"
+        },
+        {
+            "id": 2,
+            "tipo": "Receita",
+            "valor": 200.0,
+            "categoria": "casa",
+            "data": "20/02/2000"
+        },
+        {
+            "id": 4,
+            "tipo": "Receita",
+            "valor": -200.0,
+            "categoria": "coisas ",
+            "data": "21/2/2000"
+        }
+    ]
+}
