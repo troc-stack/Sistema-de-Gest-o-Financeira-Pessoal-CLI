@@ -40,9 +40,6 @@ class Gerenciador:
                 
                 if chave in elemento:
 
-                    if chave == 'valor':
-                        novo_valor = float(novo_valor)
-
                     elemento[chave] = novo_valor
                     self.salvar_arquivo()
                     
@@ -56,25 +53,14 @@ class Gerenciador:
 
     def excluir(self,id):
 
-        novos_dados = {"transações": []}
-
-        for elemento in self.__dados['transaçõs']:
+        for elemento in self.__dados['transações']:
             if elemento['id'] == id:
-                pass 
-            else: 
-                novos_dados['transações'].append(elemento)
-
-        false = False
-        for elemento in self.__dados['transaçõs']:
-            if elemento['id'] == id:
-                false = True    
-
-        if false is False: 
-            print('id não encontrado')
-
-        self.__dados = novos_dados
-        self.salvar_arquivo
-
+                self.__dados['transações'].remove(elemento)
+                self.salvar_arquivo()
+                print(f'trnasação de ID {id} foi excluida com sucesso!!!')
+                return
+        print('transação não encontrada')
+        
     def buscar(self, id):
         for elemento in self.__dados['transações']:
             if elemento['id'] == id: 
