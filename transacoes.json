@@ -1,7 +1,7 @@
 {
     "transações": [
         {
-            "id": 5,
+            "id": 1,
             "tipo": "Receita",
             "valor": 2,
             "categoria": "casa",
@@ -15,11 +15,25 @@
             "data": "20/02/2000"
         },
         {
-            "id": 4,
+            "id": 3,
             "tipo": "Receita",
-            "valor": -200.0,
-            "categoria": "coisas ",
-            "data": "21/02/2000"
+            "valor": 200.0,
+            "categoria": "folga",
+            "data": "31/07/2024"
+        },
+        {
+            "id": 4,
+            "tipo": "Despesa",
+            "valor": -450.0,
+            "categoria": "comida",
+            "data": "30/04/2026"
+        },
+        {
+            "id": 7,
+            "tipo": "Despesa",
+            "valor": -700.0,
+            "categoria": "gasolina ",
+            "data": "06/03/2009"
         }
     ]
 }
