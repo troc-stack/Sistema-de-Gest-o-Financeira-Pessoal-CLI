@@ -3,11 +3,11 @@ import json
 class Transacoes:
 
     def __init__(self, Id, Tipo, valor, categoria, data):
-        self.__Id = Id 
-        self.__Tipo = Tipo 
-        self.__valor = valor 
-        self.__categoria = categoria
-        self.__data = data 
+        self.__Id = int(Id) 
+        self.__Tipo = str(Tipo) 
+        self.__valor = float(valor) 
+        self.__categoria = str(categoria)
+        self.__data = str(data) 
 
     def salvar_arquivo(self):
         nova_transacao = {
