@@ -37,18 +37,76 @@ def main():
             rr = GerenciadorTransacoes.Gerenciador()
             rr.listar()
 
-            id = input('informe o ID da trnasação que deseja editar')
+            id = int(input('informe o ID da trnasação que deseja editar'))
             rr.buscar(id)
-            rr.editar(id) 
+
+            print('Qual das opções deseja trocar')
+            print('1 - ID  da transação; \n' \
+            '2 - receita para despesa / despesa para receita; \n'\
+            '3 - Valor\n' \
+            '4 - Categoria\n'\
+            '5 - Data\n' \
+            '6 - cancelar')
+            while True: 
+                resp = int(input('Escolha a opção de 1 a 5:'))
+                if resp == 1: 
+                    chave = 'id'
+                    novo = int(input('Informe o novo ID: '))
+                    break 
+
+                elif resp == 2:
+                    chave = 'tipo'
+                    print('1 - Despesa\n' \
+                    '2 - Receita')
+
+                    while True:
+                        tipo = int(input('Responda com 1 ou 2: '))
+                        if tipo == 1: 
+                            novo = 'Despesa'
+                            break
+                        elif tipo == 2:
+                            novo = 'Receita'
+                            break
+                        else: 
+                            print('Valor informado incorreto:')
+                    break
+
+                elif resp == 3: 
+                    chave = 'valor'
+                    novo = int(input('Digite o novo valor: '))
+                    break 
+
+                elif resp == 4:
+                    chave = 'categoria'
+                    novo = input('Informe a nova descrição da transação: \n')
+                    break 
+
+                elif resp == 5:
+                    chave = 'data'
+                    novo = input('informe a nova data: ')
+
+                elif resp == 6:
+                    break
+
+                else: 
+                    print('opção invalida!!!')
+
+            if resp in [1,2,3,4,5]:
+                rr.editar(id, chave, novo) 
 
         elif resp == 5: #Excluir transação
             print('Excluir transação')
+            rr = GerenciadorTransacoes.Gerenciador()
+            rr.listar()
+
+            id = int(input('informe o ID da trnasação que deseja excluir'))
+            rr.excluir(id)
 
         elif resp == 6: #Buscar transação
             print('Buscar transação')
             rr = GerenciadorTransacoes.Gerenciador()
 
-            id = input('informe o ID da trnasação: ')
+            id = int(input('informe o ID da transação: '))
             rr.buscar(id)
 
         elif resp == 7: #Relatório financeiro
