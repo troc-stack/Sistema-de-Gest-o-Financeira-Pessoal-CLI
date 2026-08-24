@@ -57,7 +57,7 @@ class Gerenciador:
             if elemento['id'] == id:
                 self.__dados['transações'].remove(elemento)
                 self.salvar_arquivo()
-                print(f'trnasação de ID {id} foi excluida com sucesso!!!')
+                print(f'transação de ID {id} foi excluida com sucesso!!!')
                 return
         print('transação não encontrada')
         
