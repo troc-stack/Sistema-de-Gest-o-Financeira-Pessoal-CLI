@@ -11,7 +11,7 @@ def main():
             print('Adicionar Receita')
 
             Id = int(input('digite o id da receita: '))
-            valor =+ float(input('Digite o valor: R$ '))
+            valor = +float(input('Digite o valor: R$ '))
             categoria = input('digite a categoria da receita: ')
             data = input('digite a data: ')
 
