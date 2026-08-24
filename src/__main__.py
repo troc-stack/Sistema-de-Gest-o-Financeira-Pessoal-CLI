@@ -23,7 +23,7 @@ def main():
 
             Id = int(input('digite o id da receita: '))
             valor = -abs(float(input('Digite o valor: R$ ')))
-            categoria = input('digite a categoria da receita: ')
+            categoria = input('digite a categoria da Despesa: ')
             data = input('digite a data: ')
             
             rr = transacao.Transacoes(Id, 'Despesa', valor, categoria, data)
@@ -37,10 +37,10 @@ def main():
             rr = GerenciadorTransacoes.Gerenciador()
             rr.listar()
 
-            id = int(input('informe o ID da trnasação que deseja editar'))
+            id = int(input('informe o ID da tranasação que deseja editar'))
             rr.buscar(id)
 
-            print('Qual das opções deseja trocar')
+            print('Oque deseja editar?')
             print('1 - ID  da transação; \n' \
             '2 - receita para despesa / despesa para receita; \n'\
             '3 - Valor\n' \
@@ -48,13 +48,13 @@ def main():
             '5 - Data\n' \
             '6 - cancelar')
             while True: 
-                resp = int(input('Escolha a opção de 1 a 5:'))
-                if resp == 1: 
+                resp_ed = int(input('Escolha a opção de 1 a 5: '))
+                if resp_ed == 1: 
                     chave = 'id'
                     novo = int(input('Informe o novo ID: '))
                     break 
 
-                elif resp == 2:
+                elif resp_ed == 2:
                     chave = 'tipo'
                     print('1 - Despesa\n' \
                     '2 - Receita')
@@ -67,31 +67,35 @@ def main():
                         elif tipo == 2:
                             novo = 'Receita'
                             break
+                        elif tipo == 3:
+                            print('cancelando')
+                            resp_ed = 6
+                            break
                         else: 
                             print('Valor informado incorreto:')
                     break
 
-                elif resp == 3: 
+                elif resp_ed == 3: 
                     chave = 'valor'
                     novo = float(input('Digite o novo valor: '))
                     break 
 
-                elif resp == 4:
+                elif resp_ed == 4:
                     chave = 'categoria'
                     novo = input('Informe a nova descrição da transação: \n')
                     break 
 
-                elif resp == 5:
+                elif resp_ed == 5:
                     chave = 'data'
                     novo = input('informe a nova data: ')
 
-                elif resp == 6:
+                elif resp_ed == 6:
                     break
 
                 else: 
                     print('opção invalida!!!')
 
-            if resp in [1,2,3,4,5]:
+            if resp_ed in [1,2,3,4,5]:
                 rr.editar(id, chave, novo) 
 
         elif resp == 5: #Excluir transação
@@ -99,7 +103,7 @@ def main():
             rr = GerenciadorTransacoes.Gerenciador()
             rr.listar()
 
-            id = int(input('informe o ID da trnasação que deseja excluir'))
+            id = int(input('informe o ID da transação que deseja excluir'))
             rr.excluir(id)
 
         elif resp == 6: #Buscar transação
