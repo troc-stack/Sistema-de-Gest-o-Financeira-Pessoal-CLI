@@ -14,9 +14,6 @@ class Gerenciador:
             json.dump(self.__dados, a, ensure_ascii=False, indent=4)
 
     def listar(self):
-        if not self.__dados["transações"]:
-            print("Não há transações registradas.")
-            return None
 
         n = 0 
 
@@ -81,3 +78,8 @@ class Gerenciador:
 
         print('ID já existe')
         return False
+
+    def existe_transacao(self):
+        if not self.__dados["transações"]:
+            print("Não há transações registradas.")
+            return False
