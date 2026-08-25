@@ -39,12 +39,16 @@ class Validar:
             valor = Validar.validar_valor(valor, tipo)
 
             if valor is not None: 
+                if tipo == 'Receita':
+                    valor = abs(valor)
+                elif tipo == 'Despesa':
+                    valor = -abs(valor)
                 return valor
-
+            
             print('Valor digitado não e valido')
 
     @staticmethod
-    def validar_valor(valor, tipo):
+    def validar_valor(valor):
 
         try:
             valor = float(valor)
@@ -52,16 +56,6 @@ class Validar:
             if valor <= 0:
                 return None
 
-            return valor
-
-        except ValueError:
-            return None
-
-        try: 
-            if tipo == 'Receita':
-                valor = abs(float(valor))
-            elif tipo == 'Despesa':
-                valor = -abs(float(valor))
             return valor
 
         except ValueError:
@@ -114,3 +108,13 @@ class Validar:
             return data
         except ValueError:
             return None
+
+    @staticmethod
+    def pedir_id_existente(): 
+        id = input('Digite o ID: ')
+
+        rr = GerenciadorTransacoes
+        if rr.id_transacao_existe(id) is False:
+            return id
+
+        print('ID digitado não e válido')
