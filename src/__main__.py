@@ -2,6 +2,8 @@ from ui import terminal
 from services import transacao
 from services import GerenciadorTransacoes
 from utils import validacoes
+from rich.traceback import install
+install(show_locals=True)  
 
 def main():
 
@@ -12,6 +14,8 @@ def main():
             print('Adicionar Receita')
 
             Id = validacoes.pedir_id()
+            if Id is None:
+                continue
             valor = validacoes.pedir_valor('Receita')
             categoria = validacoes.pedir_categoria()
             data = validacoes.pedir_data()
@@ -23,6 +27,8 @@ def main():
             print('Adicionar Despesa')
 
             Id = validacoes.pedir_id()
+            if Id is None:
+                continue
             valor = validacoes.pedir_valor('Despesa')
             categoria = validacoes.pedir_categoria()
             data = validacoes.pedir_data()
@@ -32,21 +38,20 @@ def main():
 
         elif resp == 3: #Listar transações
             rr = GerenciadorTransacoes.Gerenciador()
-            if rr.existe_transacao is False:
-                print ('Não existe transação registrada')
-                break
+            if rr.existe_transacao() is False:
+                continue
             rr.listar()
 
         elif resp == 4: #Editar transação
             rr = GerenciadorTransacoes.Gerenciador()
-            if rr.existe_transacao is False:
-                print ('Não existe transação registrada')
-                break
+            if rr.existe_transacao() is False:
+                continue
+
             rr.listar()
 
             id = validacoes.pedir_id_existente()
             if id is None:
-                break
+                continue
 
             rr.buscar(id)
 
