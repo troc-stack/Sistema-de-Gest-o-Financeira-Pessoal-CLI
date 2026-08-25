@@ -74,9 +74,9 @@ class Gerenciador:
     def id_transacao_existe(self, id):
         for elemento in self.__dados['transações']:
             if elemento['id'] == id:
+                print('ID já existe')
                 return True
 
-        print('ID já existe')
         return False
 
     def existe_transacao(self):
