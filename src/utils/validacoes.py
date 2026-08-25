@@ -1,10 +1,11 @@
 import json
 from datetime import datetime
+from services import GerenciadorTransacoes
 
 class Validar:
 
     @staticmethod
-    def padir_id():
+    def pedir_id():
         while True: 
             id = input('Digite um valor: ')
 
@@ -24,16 +25,10 @@ class Validar:
         except ValueError:
             return None
 
-        try: 
-            with open ('transacoes.json', 'r', encoding='utf-8') as a:
-                copy_dados = json.load(a)
-        except (FileNotFoundError, json.JSONDecodeError):
-            return id 
-        else:
-            for elemento in copy_dados['transações']:
-                if elemento['id'] == id: 
-                    print ('ID já existe')
-                    return None 
+        rr = GerenciadorTransacoes
+        if rr.id_transacao_existe(id) is True:
+            return None
+
         return id
 
     @staticmethod
@@ -51,6 +46,17 @@ class Validar:
     @staticmethod
     def validar_valor(valor, tipo):
 
+        try:
+            valor = float(valor)
+
+            if valor <= 0:
+                return None
+
+            return valor
+
+        except ValueError:
+            return None
+
         try: 
             if tipo == 'Receita':
                 valor = abs(float(valor))
@@ -64,7 +70,7 @@ class Validar:
     @staticmethod
     def pedir_categoria():
         while True:
-            categoria = input('Digite a categoria da transação, em uma palavra: ')
+            categoria = input('Digite a categoria da transação, de 2 a 30 caracteres: ')
 
             categoria = Validar.validar_categoria(categoria)
 
