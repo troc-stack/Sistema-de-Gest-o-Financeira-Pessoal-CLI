@@ -16,6 +16,7 @@ def menu():
         print('--' * 20)
 
         a = int(input('Responda uma das opções entre 1 ao 9: '))
+        print('--' * 20)
 
         if 0 < a < 10: 
             return a 
