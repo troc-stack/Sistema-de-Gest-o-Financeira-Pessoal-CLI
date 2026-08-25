@@ -34,6 +34,13 @@
             "valor": -700.0,
             "categoria": "gasolina ",
             "data": "06/03/2009"
+        },
+        {
+            "id": 32,
+            "tipo": "Receita",
+            "valor": 70.0,
+            "categoria": "casa",
+            "data": "20/12/2007"
         }
     ]
 }
