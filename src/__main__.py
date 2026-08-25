@@ -1,6 +1,7 @@
 from ui import terminal
 from services import transacao
 from services import GerenciadorTransacoes
+from utils import validacoes
 
 def main():
 
@@ -10,10 +11,10 @@ def main():
         if resp == 1: #Adicionar receita
             print('Adicionar Receita')
 
-            Id = int(input('digite o id da receita: '))
-            valor = +float(input('Digite o valor: R$ '))
-            categoria = input('digite a categoria da receita: ')
-            data = input('digite a data: ')
+            Id = validacoes.pedir_id()
+            valor = validacoes.pedir_valor('Receita')
+            categoria = validacoes.pedir_categoria()
+            data = validacoes.pedir_data()
 
             rr = transacao.Transacoes(Id, 'Receita', valor, categoria, data)
             rr.salvar_arquivo()
@@ -21,10 +22,10 @@ def main():
         elif resp == 2: #Adicionar despesa
             print('Adicionar Despesa')
 
-            Id = int(input('digite o id da receita: '))
-            valor = -abs(float(input('Digite o valor: R$ ')))
-            categoria = input('digite a categoria da Despesa: ')
-            data = input('digite a data: ')
+            Id = validacoes.pedir_id()
+            valor = validacoes.pedir_valor('Despesa')
+            categoria = validacoes.pedir_categoria()
+            data = validacoes.pedir_data()
             
             rr = transacao.Transacoes(Id, 'Despesa', valor, categoria, data)
             rr.salvar_arquivo()
