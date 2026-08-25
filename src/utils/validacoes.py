@@ -2,7 +2,7 @@ class Validar:
 
     @staticmethod
     def validar_id(id):
-        pass
+        return id 
 
     @staticmethod
     def validar_valor(id):
