@@ -118,3 +118,4 @@ class Validar:
             return id
 
         print('ID digitado não e válido')
+        return None 
