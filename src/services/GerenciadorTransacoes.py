@@ -73,3 +73,11 @@ class Gerenciador:
                 print('--' * 30)
                 return
         print('transação não encontrada!!!')
+
+    def id_transacao_existe(self, id):
+        for elemento in self.__dados['transações']:
+            if elemento['id'] == id:
+                return True
+
+        print('ID já existe')
+        return False
