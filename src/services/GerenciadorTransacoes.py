@@ -16,7 +16,7 @@ class Gerenciador:
     def listar(self):
         if not self.__dados["transações"]:
             print("Não há transações registradas.")
-            return
+            return None
 
         n = 0 
 
