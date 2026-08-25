@@ -32,16 +32,22 @@ def main():
 
         elif resp == 3: #Listar transações
             rr = GerenciadorTransacoes.Gerenciador()
+            if rr.existe_transacao is False:
+                print ('Não existe transação registrada')
+                break
             rr.listar()
 
         elif resp == 4: #Editar transação
             rr = GerenciadorTransacoes.Gerenciador()
-            if rr.listar is None: 
-                print("Não há transações registradas.")
-                break 
+            if rr.existe_transacao is False:
+                print ('Não existe transação registrada')
+                break
             rr.listar()
 
             id = validacoes.pedir_id_existente()
+            if id is None:
+                break
+
             rr.buscar(id)
 
             print('Oque deseja editar?')
@@ -101,19 +107,24 @@ def main():
         elif resp == 5: #Excluir transação
             print('Excluir transação')
             rr = GerenciadorTransacoes.Gerenciador()
-            if rr.listar is None: 
-                print("Não há transações registradas.")
-                break 
+            if rr.existe_transacao is False:
+                print ('Não existe transação registrada')
+                break
             rr.listar()
+            
+            id = validacoes.pedir_id_existente()
+            if id is None:
+                break
 
-            id = int(input('informe o ID da transação que deseja excluir'))
+            rr = GerenciadorTransacoes.Gerenciador()
             rr.excluir(id)
 
         elif resp == 6: #Buscar transação
             print('Buscar transação')
             id = validacoes.pedir_id_existente()
             if id is None:
-                
+                break
+
             rr = GerenciadorTransacoes.Gerenciador()
             rr.buscar(id)
 
