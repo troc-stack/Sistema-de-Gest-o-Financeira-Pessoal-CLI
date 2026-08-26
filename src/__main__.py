@@ -66,6 +66,8 @@ def main():
                 if resp_ed == 1: 
                     chave = 'id'
                     novo = validacoes.pedir_id()
+                    if novo is None:
+                        resp_ed = 5
                     break 
 
                 elif resp_ed == 2:
@@ -74,7 +76,7 @@ def main():
                     '2 - Receita')
 
                     while True:
-                        tipo = int(input('Responda com 1 ou 2: '))
+                        tipo = validacoes.pedir_opcao()
                         if tipo == 1: 
                             novo = 'Despesa'
                             novo = validacoes.pedir_valor('Despesa')
