@@ -13,7 +13,7 @@ def pedir_id():
 
         elif id is True:
             print('1 - Tentar outro ID')
-            print('2 - Cancelar cadastro')
+            print('2 - Cancelar ')
 
             while True:
                 try:
@@ -159,3 +159,23 @@ def validar_id_existente(id):
         return False
 
     return id
+
+def pedir_opcao():
+    while True:
+        a = input('Digite o numero opção desejada: ')
+
+        if a != None: 
+            return a
+
+        print('valor digitado e invalido tente novamente')
+
+def validar_opção(a):
+    while True:
+        try:
+            a = int(a)
+            return a
+
+        except TypeError:
+            print('Erro: Digite um numero inteiro')
+            return None
+        
