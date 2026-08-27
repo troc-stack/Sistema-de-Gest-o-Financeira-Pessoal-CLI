@@ -73,43 +73,54 @@ def main():
                 elif resp_ed == 2:
                     chave = 'tipo'
                     print('1 - Despesa\n' \
-                    '2 - Receita')
+                    '2 - Receita\n'\
+                    '3 - Cancelar')
 
                     while True:
                         tipo = validacoes.pedir_opcao()
-                        if tipo == 1: 
-                            novo = 'Despesa'
+                        if tipo == 1:
+                            chave = "tipo"
+                            chave2 = "valor"
+                            novo_modo = 'Despesa'
                             novo = validacoes.pedir_valor('Despesa')
-                            break
+                        
                         elif tipo == 2:
-                            novo = 'Receita'
+                            chave = "tipo"
+                            chave2 = "valor"
+                            novo_modo = 'Receita'
                             novo = validacoes.pedir_valor('Receita')
-                            break
+            
                         elif tipo == 3:
                             print('cancelando')
                             resp_ed = 6
                             break
                         else: 
                             print('Valor informado incorreto:')
-                    break
+
+                        rr.editar(id, chave, novo_modo) 
+                        rr.editar(id, chave2, novo)
+                        break
 
                 elif resp_ed == 3:
                     chave = 'categoria'
-                    categoria = validacoes.pedir_categoria()
+                    novo = validacoes.pedir_categoria()
                     break 
 
                 elif resp_ed == 4:
                     chave = 'data'
-                    data = validacoes.pedir_data()
+                    novo = validacoes.pedir_data()
+                    break
 
                 elif resp_ed == 5:
+                    print('cancelando')
                     break
 
                 else: 
                     print('opção invalida!!!')
 
-            if resp_ed in [1,2,3,4]:
+            if resp_ed in [1,3,4]:
                 rr.editar(id, chave, novo) 
+
 
         elif resp == 5: #Excluir transação
             print('Excluir transação')
@@ -130,7 +141,7 @@ def main():
             print('Buscar transação')
             id = validacoes.pedir_id_existente()
             if id is None:
-                break
+                continue
 
             rr = GerenciadorTransacoes.Gerenciador()
             rr.buscar(id)
