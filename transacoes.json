@@ -37,9 +37,9 @@
         },
         {
             "id": 99,
-            "tipo": "Receita",
-            "valor": 70.0,
-            "categoria": "casa",
+            "tipo": "Despesa",
+            "valor": -44.0,
+            "categoria": "Casa",
             "data": "20/12/2007"
         }
     ]
