@@ -163,8 +163,9 @@ def validar_id_existente(id):
 def pedir_opcao():
     while True:
         a = input('Digite o numero opção desejada: ')
+        a = validar_opção(a)
 
-        if a != None: 
+        if a is not None: 
             return a
 
         print('valor digitado e invalido tente novamente')
