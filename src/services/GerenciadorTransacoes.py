@@ -15,14 +15,9 @@ class Gerenciador:
 
     def listar(self):
 
-        n = 0 
-
         print("--- LISTA DE TRANSAÇÕES ---")
+        print('--' * 30)
         for elemento in self.__dados['transações']:
-            n += 1
-            print('--' * 30)
-            print(f'transação de número {n}')
-            print('--' * 30)
             print(f"| ID: {elemento['id']} "
                 f"| Tipo: {elemento['tipo']} "
                 f"| Valor: R$ {elemento['valor']:.2f} "
