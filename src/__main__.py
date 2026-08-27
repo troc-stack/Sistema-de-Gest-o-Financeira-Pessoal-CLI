@@ -43,6 +43,7 @@ def main():
             rr.listar()
 
         elif resp == 4: #Editar transação
+            print('Editar transação')
             rr = GerenciadorTransacoes.Gerenciador()
             if rr.existe_transacao() is False:
                 continue
@@ -153,6 +154,7 @@ def main():
             print('Exportar dados')
             
         elif resp == 9:
+            print('Finalizando programa')
             break
 
 if __name__ == '__main__':
