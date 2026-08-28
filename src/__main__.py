@@ -1,7 +1,7 @@
 from ui import terminal
 from services import transacao
 from services import GerenciadorTransacoes
-from utils import validacoes
+from utils import entradas
 from rich.traceback import install
 install(show_locals=True)  
 
@@ -13,12 +13,12 @@ def main():
         if resp == 1: #Adicionar receita
             print('Adicionar Receita')
 
-            Id = validacoes.pedir_id()
+            Id = entradas.pedir_id()
             if Id is None:
                 continue
-            valor = validacoes.pedir_valor('Receita')
-            categoria = validacoes.pedir_categoria()
-            data = validacoes.pedir_data()
+            valor = entradas.pedir_valor('Receita')
+            categoria = entradas.pedir_categoria()
+            data = entradas.pedir_data()
 
             rr = transacao.Transacoes(Id, 'Receita', valor, categoria, data)
             rr.salvar_arquivo()
@@ -26,12 +26,12 @@ def main():
         elif resp == 2: #Adicionar despesa
             print('Adicionar Despesa')
 
-            Id = validacoes.pedir_id()
+            Id = entradas.pedir_id()
             if Id is None:
                 continue
-            valor = validacoes.pedir_valor('Despesa')
-            categoria = validacoes.pedir_categoria()
-            data = validacoes.pedir_data()
+            valor = entradas.pedir_valor('Despesa')
+            categoria = entradas.pedir_categoria()
+            data = entradas.pedir_data()
             
             rr = transacao.Transacoes(Id, 'Despesa', valor, categoria, data)
             rr.salvar_arquivo()
@@ -50,7 +50,7 @@ def main():
 
             rr.listar()
 
-            id = validacoes.pedir_id_existente()
+            id = entradas.pedir_id_existente()
             if id is None:
                 continue
 
@@ -66,7 +66,7 @@ def main():
                 resp_ed = int(input('Escolha a opção de 1 a 5: '))
                 if resp_ed == 1: 
                     chave = 'id'
-                    novo = validacoes.pedir_id()
+                    novo = entradas.pedir_id()
                     if novo is None:
                         resp_ed = 5
                     break 
@@ -78,18 +78,18 @@ def main():
                     '3 - Cancelar')
 
                     while True:
-                        tipo = validacoes.pedir_opcao()
+                        tipo = entradas.pedir_opcao()
                         if tipo == 1:
                             chave = "tipo"
                             chave2 = "valor"
                             novo_modo = 'Despesa'
-                            novo = validacoes.pedir_valor('Despesa')
+                            novo = entradas.pedir_valor('Despesa')
                         
                         elif tipo == 2:
                             chave = "tipo"
                             chave2 = "valor"
                             novo_modo = 'Receita'
-                            novo = validacoes.pedir_valor('Receita')
+                            novo = entradas.pedir_valor('Receita')
             
                         elif tipo == 3:
                             print('cancelando')
@@ -101,15 +101,16 @@ def main():
                         rr.editar(id, chave, novo_modo) 
                         rr.editar(id, chave2, novo)
                         break
+                    break
 
                 elif resp_ed == 3:
                     chave = 'categoria'
-                    novo = validacoes.pedir_categoria()
+                    novo = entradas.pedir_categoria()
                     break 
 
                 elif resp_ed == 4:
                     chave = 'data'
-                    novo = validacoes.pedir_data()
+                    novo = entradas.pedir_data()
                     break
 
                 elif resp_ed == 5:
@@ -131,7 +132,7 @@ def main():
                 break
             rr.listar()
             
-            id = validacoes.pedir_id_existente()
+            id = entradas.pedir_id_existente()
             if id is None:
                 break
 
@@ -140,7 +141,7 @@ def main():
 
         elif resp == 6: #Buscar transação
             print('Buscar transação')
-            id = validacoes.pedir_id_existente()
+            id = entradas.pedir_id_existente()
             if id is None:
                 continue
 
