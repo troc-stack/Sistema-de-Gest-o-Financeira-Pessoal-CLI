@@ -22,13 +22,6 @@
             "data": "31/07/2024"
         },
         {
-            "id": 4,
-            "tipo": "Despesa",
-            "valor": -450.0,
-            "categoria": "comida",
-            "data": "30/04/2026"
-        },
-        {
             "id": 7,
             "tipo": "Despesa",
             "valor": -700.0,
@@ -40,7 +33,21 @@
             "tipo": "Despesa",
             "valor": -44.0,
             "categoria": "Casa",
-            "data": "20/12/2007"
+            "data": "8/4/2024"
+        },
+        {
+            "id": 87,
+            "tipo": "Receita",
+            "valor": 131.0,
+            "categoria": "Casa",
+            "data": "31/12/2003"
+        },
+        {
+            "id": 32,
+            "tipo": "Despesa",
+            "valor": -300.0,
+            "categoria": "Farofa",
+            "data": "5/8/2022"
         }
     ]
 }
