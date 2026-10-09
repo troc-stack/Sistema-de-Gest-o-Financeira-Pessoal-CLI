@@ -78,3 +78,25 @@ class Gerenciador:
         if not self.__dados["transações"]:
             print("Não há transações registradas.")
             return False
+
+    def dados_relatorio(self):
+            tabela_dados = [["ID", "Data", "Tipo", "Categoria", "Valor"]]
+            total_receitas = 0 
+            total_despesas = 0 
+
+            for t in self.__dados['transações']:
+                valor_formatado = f"R$ {t['valor']:,.2f}".replace(",", "X").replace(".", ",").replace("X", ".")
+
+                if t['tipo'] == 'Receita':
+                    total_receitas += t['valor']
+                else:
+                    total_despesas += abs(t['valor'])
+                
+                tabela_dados.append([
+                    str(t['id']),
+                    str(t['data']),
+                    str(t['tipo']),
+                    str(t['categoria']).strip().capitalize(),
+                    valor_formatado
+                ])
+            return tabela_dados, total_receitas, total_despesas
