@@ -11,8 +11,7 @@ def menu():
             '5. Excluir transação\n'
             '6. Buscar transação\n'
             '7. Relatório financeiro\n'
-            '8. Exportar dados\n'
-            '9. Sair')
+            '8. Sair')
         print('--' * 20)
 
         a = int(input('Responda uma das opções entre 1 ao 9: '))
