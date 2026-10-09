@@ -2,8 +2,9 @@ from ui import terminal
 from services import transacao
 from services import GerenciadorTransacoes
 from utils import entradas
+from services import Relatorio
 from rich.traceback import install
-install(show_locals=True)  
+install(show_locals=True)
 
 def main():
 
@@ -127,7 +128,7 @@ def main():
         elif resp == 5: #Excluir transação
             print('Excluir transação')
             rr = GerenciadorTransacoes.Gerenciador()
-            if rr.existe_transacao is False:
+            if rr.existe_transacao() is False:
                 print ('Não existe transação registrada')
                 break
             rr.listar()
@@ -149,12 +150,31 @@ def main():
             rr.buscar(id)
 
         elif resp == 7: #Relatório financeiro
-            print('Relatório financeiro')
+            Relatorio.gerar_relatorio()
 
-        elif resp == 8: #Exportar dados
-            print('Exportar dados')
+            print('O que deseja:' \
+                '1 - deseja baixar relatorio' \
+                '2 - deseja exportar relatorio' \
+                '3 - sair')
             
-        elif resp == 9:
+            while True:
+                resp = int(input('Digite o numero da resposta equivalente: ')) 
+                if resp == 1:
+                    Relatorio.baixar_dados()
+                    return 
+        
+                if resp == 2: 
+                    Relatorio.exportar_dados()
+                    return 
+        
+                if resp == 3:
+                    print('saindo')
+                    return
+        
+                else: 
+                    print('tente novamente')
+            
+        elif resp == 8:
             print('Finalizando programa')
             break
 
