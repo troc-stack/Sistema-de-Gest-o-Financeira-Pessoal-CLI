@@ -89,7 +89,7 @@ def gerar_relatorio(nome_arquivo='Relatorio_transaçoes.pdf'):
 
 
 def baixar_dados():
-    arquivo_original = Path("Relatorio_transacoes.pdf")
+    arquivo_original = Path("Relatorio_transaçoes.pdf")
     
     if not arquivo_original.exists():
         print("Ainda não há nenhum relatório gerado para baixar!")
@@ -100,6 +100,3 @@ def baixar_dados():
     
     shutil.copy(arquivo_original, destino)
     print(f"Sucesso! Arquivo copiado para: {destino}")
-
-def exportar_dados():
-    pass
