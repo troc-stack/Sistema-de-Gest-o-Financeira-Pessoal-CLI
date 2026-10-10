@@ -152,24 +152,20 @@ def main():
         elif resp == 7: #Relatório financeiro
             Relatorio.gerar_relatorio()
 
-            print('O que deseja:' \
-                '1 - deseja baixar relatorio' \
-                '2 - deseja exportar relatorio' \
+            print('O que deseja:\n' \
+                '1 - deseja baixar relatorio\n' \
+                '2 - deseja exportar relatorio\n' \
                 '3 - sair')
             
             while True:
                 resp = int(input('Digite o numero da resposta equivalente: ')) 
                 if resp == 1:
                     Relatorio.baixar_dados()
-                    return 
+                    break
         
-                if resp == 2: 
-                    Relatorio.exportar_dados()
-                    return 
-        
-                if resp == 3:
+                if resp == 2:
                     print('saindo')
-                    return
+                    break
         
                 else: 
                     print('tente novamente')
